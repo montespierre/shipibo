@@ -30,7 +30,7 @@ public class Conexion {
 		String driver = "org.mariadb.jdbc.Driver";
 		String urlDB = "jdbc:mariadb://localhost:3306/agenda";
 		String user = "admin";
-		String pass = "";
+		String pass = "a";
 
 		try {
 			//Class.forName("org.mariadb.jdbc.Driver").newInstance();
