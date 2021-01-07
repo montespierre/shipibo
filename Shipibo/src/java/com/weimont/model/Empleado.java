@@ -14,18 +14,18 @@ public class Empleado {
     String dni;
     String nom;
     String tel;
-    String estadi;
+    String estado;
     String user;
 
-    public Empleado() {
+    public Empleado(){
     }
 
-    public Empleado(int id, String dni, String nom, String tel, String estadi, String user) {
+    public Empleado(int id, String dni, String nom, String tel, String estado, String user) {
         this.id = id;
         this.dni = dni;
         this.nom = nom;
         this.tel = tel;
-        this.estadi = estadi;
+        this.estado = estado;
         this.user = user;
     }
 
@@ -62,11 +62,11 @@ public class Empleado {
     }
 
     public String getEstadi() {
-        return estadi;
+        return estado;
     }
 
     public void setEstadi(String estadi) {
-        this.estadi = estadi;
+        this.estado = estadi;
     }
 
     public String getUser() {

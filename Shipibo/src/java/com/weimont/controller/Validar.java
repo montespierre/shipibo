@@ -5,6 +5,8 @@
  */
 package com.weimont.controller;
 
+import com.weimont.model.Empleado;
+import com.weimont.model.EmpleadoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,15 +20,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Validar extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    EmpleadoDao eDao = new EmpleadoDao();
+    Empleado em = new Empleado();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -74,6 +70,16 @@ public class Validar extends HttpServlet {
         if(accion.equalsIgnoreCase("Ingresar")){
             String user = request.getParameter("txtUser");
             String pass = request.getParameter("txtPass");
+            em=eDao.validar(user, pass);
+            if(em.getUser()!=null){
+                request.getRequestDispatcher("Controlador?accion=Principal").forward(request, response);
+                
+            }else{
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+                
+        }else{
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 
