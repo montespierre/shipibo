@@ -17,7 +17,7 @@ import java.sql.SQLException;
  */
 public class Conexion {
     
-    private Conexion(){
+    public Conexion(){
         
     }
 
@@ -28,9 +28,9 @@ public class Conexion {
 		// String direccion =
 		// "jdbc:mariadb://localhost:3306/agenda?user=moche232&password=2322715";
 		String driver = "org.mariadb.jdbc.Driver";
-		String urlDB = "jdbc:mariadb://localhost:3306/agenda";
-		String user = "admin";
-		String pass = "a";
+		String urlDB = "jdbc:mariadb://localhost:3306/shipibo";
+		String user = "ventas";
+		String pass = "2322715";
 
 		try {
 			//Class.forName("org.mariadb.jdbc.Driver").newInstance();
