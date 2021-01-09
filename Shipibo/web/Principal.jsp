@@ -29,19 +29,19 @@
                         <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?accion=Producto" target="myFrame">Producto</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?menu=Producto" target="myFrame">Producto</a>
                     </li>
 
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?accion=Empleado" target="myFrame">Empleado</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?menu=Empleado" target="myFrame">Empleado</a>
                     </li>
 
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?accion=Cliente" target="myFrame">Clientes</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?menu=Cliente" target="myFrame">Clientes</a>
                     </li>
 
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?accion=NuevaVenta" target="myFrame">Nueva Venta</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?menu=NuevaVenta" target="myFrame">Nueva Venta</a>
                     </li>
 
 
@@ -71,7 +71,7 @@
         </nav>
 
         <div class="m-4" style="height: 550px;">
-            <iframe name="myFrame" style="height: 100%; width: 100%"></iframe>
+            <iframe name="myFrame" style="height: 100%; width: 100%; border: none "></iframe>
         </div>
 
 
