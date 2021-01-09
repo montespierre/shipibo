@@ -29,24 +29,24 @@
                         <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Producto</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?accion=Producto" target="#myFrame">Producto</a>
                     </li>
-                    
+
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Empleado</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?accion=Empleado" target="#myFrame">Empleado</a>
                     </li>
-                    
+
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Cliente</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?accion=Cliente" target="#myFrame">Clientes</a>
                     </li>
-                    
+
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Nueva Venta</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?accion=NuevaVenta" target="#myFrame">Nueva Venta</a>
                     </li>
-                    
-                    
-                    
-                    
+
+
+
+
                 </ul>
 
                 <div class="dropdown">
@@ -57,14 +57,22 @@
                         <a class="dropdown-item" href="#">
                             <img src="img/user.png" alt="60" width="60"/>
                         </a>
-                        <a class="dropdown-item" href="#">usuario</a>
+                        <a class="dropdown-item" href="#">${usuario.getUser()}</a>
                         <a class="dropdown-item" href="#">usuario@gmail.com</a>
-                        <div class="dropdown-item" href="#">salir</div>
+                        <div class="dropdown-divider" ></div>
+
+                        <form action="Validar" method="POST">
+                            <button name="accion" value="Salir" class="dropdown-item" href="#">Salir</button>
+                        </form>
                     </div>
                 </div>
 
             </div>
         </nav>
+
+        <div class="m-4" style="height: 550px;">
+            <iframe id="myFrame" style="height: 100%; width: 100%"></iframe>
+        </div>
 
 
 
