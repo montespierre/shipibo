@@ -26,22 +26,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Producto</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Empleado</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Producto</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cliente</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Empleado</a>
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nueva Venta</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Cliente</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="#">Nueva Venta</a>
                     </li>
                     
                     
@@ -50,13 +50,16 @@
                 </ul>
 
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
+                    <button style="border: none" class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ${usuario.getNom()}
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">
+                            <img src="img/user.png" alt="60" width="60"/>
+                        </a>
+                        <a class="dropdown-item" href="#">usuario</a>
+                        <a class="dropdown-item" href="#">usuario@gmail.com</a>
+                        <div class="dropdown-item" href="#">salir</div>
                     </div>
                 </div>
 
