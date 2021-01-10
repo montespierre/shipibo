@@ -71,15 +71,15 @@ public class EmpleadoDao {
     }
     
     public int agregar(Empleado em){
-        String sql = "insert into empleado(Dni, Nombre, Telefono, Estado, User) values(?,?,?,?,?)";
+        String sql = "insert into empleado(Dni, Nombres, Telefono, Estado, User) values(?,?,?,?,?)";
         try {
             con = cn.conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, em.getDni());
-            ps.setString(1, em.getNom());
-            ps.setString(1, em.getTel());
-            ps.setString(1, em.getEstado());
-            ps.setString(1, em.getUser());
+            ps.setString(2, em.getNom());
+            ps.setString(3, em.getTel());
+            ps.setString(4, em.getEstado());
+            ps.setString(5, em.getUser());
             ps.executeUpdate();
         } catch (Exception e) {
         }

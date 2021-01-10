@@ -15,7 +15,7 @@
         <div class="d-flex">
             <div class="card col-sm-6">
                 <div class="card-body">
-                    <form>
+                    <form action="Controlador?menu=Empleado" method="POST">
                         <div class="form-group">
                             <label>Dni</label>
                             <input type="text" name="txtDni" class="form-control">
@@ -30,11 +30,11 @@
                         </div>
                         <div class="form-group">
                             <label>Estado</label>
-                            <input type="text" name="txtDni" class="form-control">
+                            <input type="text" name="txtEstado" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="text" name="txtDni" class="form-control">
+                            <input type="text" name="txtUser" class="form-control">
                         </div>
 
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
@@ -48,6 +48,7 @@
 
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>DNI</th>
                             <th>NOMBRES</th>
                             <th>TELEFONO</th>
