@@ -33,7 +33,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?menu=Empleado" target="myFrame">Empleado</a>
+                        <a style="margin-left: 10px; border: none " class="btn btn-outline-light" href="Controlador?menu=Empleado&accion=Listar" target="myFrame">Empleado</a>
                     </li>
 
                     <li class="nav-item">

@@ -1,7 +1,10 @@
 package com.weimont.controller;
 
+import com.weimont.model.Empleado;
+import com.weimont.model.EmpleadoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author montespierreg
  */
 public class Controlador extends HttpServlet {
+    
+    Empleado em = new Empleado();
+    EmpleadoDao edao = new EmpleadoDao();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -24,6 +30,28 @@ public class Controlador extends HttpServlet {
         }
         
         if(menu.equals("Empleado")){
+            
+            switch(accion){
+                case "Listar":
+                    List lista = edao.listar();
+                    request.setAttribute("empleados", lista);
+                    break;
+                    
+                case "Agregar":
+                            
+                    break;
+                    
+                case "Editar":
+                            
+                    break;
+                    
+                case "Delete":
+                    
+                            
+                    break;    
+                default:
+                    throw new AssertionError();
+            }
             request.getRequestDispatcher("Empleado.jsp").forward(request, response);
         }
         

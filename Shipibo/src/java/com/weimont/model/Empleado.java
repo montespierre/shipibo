@@ -61,12 +61,12 @@ public class Empleado {
         this.tel = tel;
     }
 
-    public String getEstadi() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstadi(String estadi) {
-        this.estado = estadi;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getUser() {

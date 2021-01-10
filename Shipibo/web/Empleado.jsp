@@ -57,14 +57,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>Items</th>
-                            <th>Items</th>
-                        </tr>
-                        <tr>
-                            <th>Items</th>
-                            <th>Items</th>
-                        </tr>
+                        <c:forEach var="em" items="${empleados}">
+                            <tr>
+                                <td>${em.getId()}</td>
+                                <td>${em.getDni()}</td>
+                                <td>${em.getNom()}</td>
+                                <td>${em.getTel()}</td>
+                                <td>${em.getEstado()}</td>
+                                <td>${em.getUser()}</td>
+                                <td>
+                                    <a>Editar</a>
+                                    <a>Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        
                     </tbody>
                 </table>
 

@@ -9,6 +9,8 @@ import com.weimont.config.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,6 +21,7 @@ public class EmpleadoDao {
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
+    int r;
     
     public Empleado validar(String user, String dni){
         Empleado em = new Empleado();
@@ -41,5 +44,92 @@ public class EmpleadoDao {
         return em;
     }
     
+    //operaciones CRUD
     
+    public List listar(){
+        String sql = "select * from empleado";
+        List<Empleado> lista = new ArrayList<>();
+        
+        try {
+            con = cn.conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Empleado em = new Empleado();
+                em.setId(rs.getInt(1));
+                em.setDni(rs.getString(2));
+                em.setNom(rs.getString(3));
+                em.setTel(rs.getString(4));
+                em.setEstado(rs.getString(5));
+                em.setUser(rs.getString(6));
+                lista.add(em);
+                
+            }
+        } catch (Exception e) {
+        }
+        return lista;
+    }
+    
+    public int agregar(Empleado em){
+        String sql = "insert into empleado(Dni, Nombre, Telefono, Estado, User) values(?,?,?,?,?)";
+        try {
+            con = cn.conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, em.getDni());
+            ps.setString(1, em.getNom());
+            ps.setString(1, em.getTel());
+            ps.setString(1, em.getEstado());
+            ps.setString(1, em.getUser());
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return r;
+    }
+    
+    public Empleado listarId(int id){
+        Empleado emp = new Empleado();
+        String sql = "select * from empleado where IdEmpleado="+id;
+        
+        try {
+            con = cn.conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                emp.setDni(rs.getString(2));
+                emp.setNom(rs.getString(3));
+                emp.setTel(rs.getString(4));
+                emp.setEstado(rs.getString(5));
+                emp.setUser(rs.getString(6));
+            }
+        } catch (Exception e) {
+        }
+        return emp;
+    }
+    
+    public int actualizar(Empleado em){
+        String sql = "update empleado set Dni=?, Nombre=?, Telefono=?, Estado=?, User=? where IdEmpleado=?";
+        try {
+            con = cn.conexion();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, em.getDni());
+            ps.setString(1, em.getNom());
+            ps.setString(1, em.getTel());
+            ps.setString(1, em.getEstado());
+            ps.setString(1, em.getUser());
+            ps.setInt(6, em.getId());
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        return r;
+    }
+    
+    public void delete(int id){
+        String sql = "delete from empleado where IdEmpleado="+id;
+        try {
+            con = cn.conexion();
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
 }
