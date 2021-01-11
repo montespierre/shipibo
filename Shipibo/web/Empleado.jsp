@@ -18,26 +18,27 @@
                     <form action="Controlador?menu=Empleado" method="POST">
                         <div class="form-group">
                             <label>Dni</label>
-                            <input type="text" name="txtDni" class="form-control">
+                            <input type="text" value="${empleado.getDni()}" name="txtDni" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" name="txtNombres" class="form-control">
+                            <input type="text" value="${empleado.getNom()}" name="txtNombres" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Telefono</label>
-                            <input type="text" name="txtTel" class="form-control">
+                            <input type="text" value="${empleado.getTel()}" name="txtTel" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Estado</label>
-                            <input type="text" name="txtEstado" class="form-control">
+                            <input type="text" value="${empleado.getEstado()}" name="txtEstado" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="text" name="txtUser" class="form-control">
+                            <input type="text" value="${empleado.getUser()}" name="txtUser" class="form-control">
                         </div>
 
                         <input type="submit" name="accion" value="Agregar" class="btn btn-info">
+                        <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
                     </form>
                 </div>
 
@@ -67,8 +68,8 @@
                                 <td>${em.getEstado()}</td>
                                 <td>${em.getUser()}</td>
                                 <td>
-                                    <a>Editar</a>
-                                    <a>Delete</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=Empleado&accion=Editar&id=${em.getId()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Empleado&accion=Delete&id=${em.getId()}">Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>

@@ -107,15 +107,15 @@ public class EmpleadoDao {
     }
     
     public int actualizar(Empleado em){
-        String sql = "update empleado set Dni=?, Nombre=?, Telefono=?, Estado=?, User=? where IdEmpleado=?";
+        String sql = "update empleado set Dni=?, Nombres=?, Telefono=?, Estado=?, User=? where IdEmpleado=?";
         try {
             con = cn.conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, em.getDni());
-            ps.setString(1, em.getNom());
-            ps.setString(1, em.getTel());
-            ps.setString(1, em.getEstado());
-            ps.setString(1, em.getUser());
+            ps.setString(2, em.getNom());
+            ps.setString(3, em.getTel());
+            ps.setString(4, em.getEstado());
+            ps.setString(5, em.getUser());
             ps.setInt(6, em.getId());
             ps.executeUpdate();
         } catch (Exception e) {
