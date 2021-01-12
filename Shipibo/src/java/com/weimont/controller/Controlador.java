@@ -1,5 +1,7 @@
 package com.weimont.controller;
 
+import com.weimont.model.Cliente;
+import com.weimont.model.ClienteDao;
 import com.weimont.model.Empleado;
 import com.weimont.model.EmpleadoDao;
 import java.io.IOException;
@@ -18,6 +20,8 @@ public class Controlador extends HttpServlet {
     
     Empleado em = new Empleado();
     EmpleadoDao edao = new EmpleadoDao();
+    ClienteDao cdao = new ClienteDao();
+    Cliente c = new Cliente();
     int ide;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -98,6 +102,16 @@ public class Controlador extends HttpServlet {
         
         
         if(menu.equals("NuevaVenta")){
+            switch(accion){
+                case "BuscarCliente":
+                    String dni = request.getParameter("codigocliente");
+                    c.setDni(dni);
+                    Cliente cl = cdao.buscar(dni);
+                    request.setAttribute("cliente", cl);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
             request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
         }
         
