@@ -58,7 +58,7 @@
                                 </div>
 
                                 <div class="col-sm-3 d-flex">
-                                    <input type="number" name="cant" class="form-control" placeholder="">
+                                    <input type="number" name="cant" value="1" class="form-control" placeholder="">
 
                                 </div>
 
@@ -66,8 +66,11 @@
                                     <input type="text" name="stock" value="${producto.getStock()}" placeholder="Datos Cliente" class="form-control col-sm2">
                                 </div>
                             </div>
+                            <!--Agregar Registro-->
                             <div class="form-group">
-                                <input type="submit" name="accion" value="Agregar" class="btn btn-outline-info">
+                                <div class="col-sm">
+                                    <button type="submit" name="accion" value="Agregar" class="btn btn-outline-info">Agregar Producto</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -94,15 +97,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                <c:forEach var="list" items="${lista}">
+                                    <tr>
+                                    <td>${list.getItem()}</td>
+                                    <td>${list.getIdproducto()}</td>
+                                    <td>${list.getDescripcionP()}</td>
+                                    <td>${list.getPrecio()}</td>
+                                    <td>${list.getCantidad()}</td>
+                                    <td>${list.getSubtotal()}</td>
                                 </tr>
+                                </c:forEach>
+                                
                             </tbody>
                         </table>
 
