@@ -10,11 +10,11 @@ package com.weimont.model;
  * @author montespierreg
  */
 public class Cliente {
-    int id;
-    String dni;
-    String nom;
-    String dir;
-    String es;
+    private int id;
+    private String dni;
+    private String nom;
+    private String dir;
+    private String es;
 
     public Cliente() {
     }

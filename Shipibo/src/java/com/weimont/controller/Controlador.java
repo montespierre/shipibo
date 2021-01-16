@@ -4,6 +4,8 @@ import com.weimont.model.Cliente;
 import com.weimont.model.ClienteDao;
 import com.weimont.model.Empleado;
 import com.weimont.model.EmpleadoDao;
+import com.weimont.model.Producto;
+import com.weimont.model.ProductoDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -22,6 +24,8 @@ public class Controlador extends HttpServlet {
     EmpleadoDao edao = new EmpleadoDao();
     ClienteDao cdao = new ClienteDao();
     Cliente c = new Cliente();
+    Producto p = new Producto();
+    ProductoDao pdao = new ProductoDao();
     int ide;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -109,8 +113,13 @@ public class Controlador extends HttpServlet {
                     c = cdao.buscar(dni);
                     request.setAttribute("c", c);
                     break;
+                case "BuscarProducto":
+                    int id = Integer.parseInt(request.getParameter("codigoproducto"));
+                    p = pdao.listarId(id);
+                    request.setAttribute("producto", p);
+                    break;
                 default:
-                    //throw new AssertionError();
+                    request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
             }
             request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
         }
