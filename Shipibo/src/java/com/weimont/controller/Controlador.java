@@ -106,11 +106,11 @@ public class Controlador extends HttpServlet {
                 case "BuscarCliente":
                     String dni = request.getParameter("codigocliente");
                     c.setDni(dni);
-                    Cliente cl = cdao.buscar(dni);
-                    request.setAttribute("cliente", cl);
+                    c = cdao.buscar(dni);
+                    request.setAttribute("c", c);
                     break;
                 default:
-                    throw new AssertionError();
+                    //throw new AssertionError();
             }
             request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
         }

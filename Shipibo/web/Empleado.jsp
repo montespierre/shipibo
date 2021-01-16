@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="d-flex">
-            <div class="card col-sm-4">
+            <div class="card col-sm-6">
                 <div class="card-body">
                     <form action="Controlador?menu=Empleado" method="POST">
                         <div class="form-group">
@@ -44,7 +44,7 @@
 
             </div>
 
-            <div class="col-sm-8">
+            <div class="col-sm-6">
                 <table class="table table-hover">
 
                     <thead>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@
     </head>
     <body>
         <div class="d-flex">
-            <div class="col-sm-6">
+            <div class="col-sm-5">
                 <div class="card">
                     <form action="Controlador?menu=NuevaVenta" method="POST">
                         <div class="card-body">
@@ -21,8 +22,9 @@
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigocliente" value="${c.getDni()}" class="form-control" placeholder="codigo">
-                                    <input type="submit" name="accion" value="BuscarCliente" class="btn btn-outline-info">
+                                    <input type="text" name="codigocliente" value="${c.getDni()}" class="form-control col-sm-4" placeholder="codigo">
+                                    <input type="submit" name="accion" value="BuscarCliente" class="btn btn-outline-info col-sm-8">
+                                    
 
                                 </div>
 
@@ -39,8 +41,8 @@
 
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigoproducto" class="form-control" placeholder="codigo">
-                                    <input type="submit" name="accion" value="buscar" class="btn btn-outline-info">
+                                    <input type="text" name="codigoproducto" class="form-control col-sm-6" placeholder="codigo">
+                                    <input type="submit" name="accion" value="buscar" class="btn btn-outline-info col-sm-6">
 
                                 </div>
 
@@ -71,10 +73,10 @@
                     </form>
                 </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-7">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex col-sm-5 ml-auto">
+                        <div class="d-flex col-sm-3">
                             <label>NumeroSerie: </label>
                             <input type="text" name="NroSerie" class="form-control">
                         </div>
