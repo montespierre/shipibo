@@ -130,24 +130,49 @@ public class Controlador extends HttpServlet {
                 case "BuscarProducto":
                     int id = Integer.parseInt(request.getParameter("codigoproducto"));
                     p = pdao.listarId(id);
+                    request.setAttribute("lista", lista);
                     request.setAttribute("producto", p);
                     break;
                 case "Agregar":
-                    item = item + 1;
+                    //item = item + 1;
                     cod = p.getId();
                     descripcion = request.getParameter("nomproducto");
                     precio = Double.parseDouble(request.getParameter("precio"));
                     cant =Integer.parseInt(request.getParameter("cant"));
                     subtotal = precio * cant;
                     v = new Venta();
-                    v.setItem(item);
-                    v.setId(cod);
-                    v.setDescripcionP(descripcion);
-                    v.setPrecio(precio);
-                    v.setCantidad(cant);
-                    v.setSubtotal(subtotal);
-                    lista.add(v);
-                    request.setAttribute("lista", lista);
+                    
+                    int encontrado = 0;
+                    
+                    for(Venta actual: lista){
+                        if (actual.getId().equals(cod)){
+                            int otraCant = actual.getCantidad() + cant;
+                            double otroSubtotal = actual.getSubtotal() + subtotal;
+                            actual.setCantidad(otraCant);
+                            actual.setSubtotal(otroSubtotal);
+                            encontrado = 1;
+                            v = new Venta();
+                            request.setAttribute("lista", lista);
+                            //request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
+                            break;
+                        }
+                    }
+                    
+                    if (encontrado == 0){
+                        item = item + 1;
+                        v = new Venta();
+                        v.setItem(item);
+                        v.setId(cod);
+                        v.setDescripcionP(descripcion);
+                        v.setPrecio(precio);
+                        v.setCantidad(cant);
+                        v.setSubtotal(subtotal);
+                        lista.add(v);
+                        request.setAttribute("lista", lista);
+                        //break;
+                    }
+                    
+                    request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response); 
                     break;
                 default:
                     request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
