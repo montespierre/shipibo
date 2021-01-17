@@ -151,6 +151,7 @@ public class Controlador extends HttpServlet {
                             actual.setCantidad(otraCant);
                             actual.setSubtotal(otroSubtotal);
                             encontrado = 1;
+                            
                             v = new Venta();
                             request.setAttribute("lista", lista);
                             //request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
