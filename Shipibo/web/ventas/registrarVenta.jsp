@@ -105,9 +105,9 @@
                                     <td>${list.getPrecio()}</td>
                                     <td>${list.getCantidad()}</td>
                                     <td>${list.getSubtotal()}</td>
-                                    <td>
+                                    <td class="d-flex">
                                         <a href="#" class="btn btn-warning">Editar</a>
-                                        <a href="#" class="btn btn-danger">Eliminar</a>
+                                        <a href="#" class="btn btn-danger" style="margin-left: 10px">Eliminar</a>
                                     </td>
                                 </tr>
                                 </c:forEach>
@@ -123,7 +123,7 @@
                         </div>
                         
                         <div class="col-sm-4 ml-auto">
-                            <input type="text" name="txtTotal" value="${totalPagar}" class="form-control">
+                            <input type="text" name="txtTotal" value="${totalpagar}" class="form-control">
                         </div>
                     </div>
                     
