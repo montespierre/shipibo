@@ -123,7 +123,7 @@
                         </div>
                         
                         <div class="col-sm-4 ml-auto">
-                            <input type="text" name="txtTotal" value="${totalpagar}" class="form-control">
+                            <input type="text" name="txtTotal" value="S/. ${totalpagar}" class="form-control">
                         </div>
                     </div>
                     

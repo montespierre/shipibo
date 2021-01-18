@@ -138,6 +138,7 @@ public class Controlador extends HttpServlet {
                     request.setAttribute("totalpagar", totalPagar);
                     break;
                 case "Agregar":
+                    request.setAttribute("c", c);
                     totalPagar = 0.0;
                     //item = item + 1;
                     cod = p.getId();
@@ -158,7 +159,14 @@ public class Controlador extends HttpServlet {
                             encontrado = 1;
                             
                             v = new Venta();
+                            
+                            for(int i =0; i < lista.size(); i++){
+                            totalPagar = totalPagar + lista.get(i).getSubtotal();
+                            }
+                          
+                            
                             request.setAttribute("lista", lista);
+                            request.setAttribute("totalpagar", totalPagar);
                             //request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
                             break;
                         }
