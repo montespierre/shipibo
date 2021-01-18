@@ -181,7 +181,7 @@ public class Controlador extends HttpServlet {
                         item = item + 1;
                         v = new Venta();
                         v.setItem(item);
-                        v.setId(cod);
+                        v.setIdproducto(cod);
                         v.setDescripcionP(descripcion);
                         v.setPrecio(precio);
                         v.setCantidad(cant);
@@ -199,6 +199,27 @@ public class Controlador extends HttpServlet {
                     
                     request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response); 
                     break;
+                    
+                case "GenerarVenta":
+                    //Guardar venta
+                    v.setIdcliente(c.getId());
+                    v.setIdempleado(1);
+                    v.setNumserie(numeroserie);
+                    v.setFecha("2019-06-14");
+                    v.setMonto(totalPagar);
+                    v.setEstado("1");
+                    vdao.guardarVenta(v);
+                    
+                    //Guardar Detalle Venta
+                    int idv = Integer.parseInt(vdao.IdVentas());
+                    for(int i = 0; i <lista.size(); i++){
+                        v = new Venta();
+                        v.setId(idv);
+                        v.setIdproducto(lista.get(i).getIdproducto());
+                        v.setCantidad(lista.get(i).getCantidad());
+                        v.setPrecio(lista.get(i).getPrecio());
+                        vdao.guardarDetalleventas(v);
+                    }
                 default:
                     numeroserie = vdao.GenerarSerie();
                     if(numeroserie==null){
