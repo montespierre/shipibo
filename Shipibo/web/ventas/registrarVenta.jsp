@@ -105,6 +105,10 @@
                                     <td>${list.getPrecio()}</td>
                                     <td>${list.getCantidad()}</td>
                                     <td>${list.getSubtotal()}</td>
+                                    <td>
+                                        <a href="#" class="btn btn-warning">Editar</a>
+                                        <a href="#" class="btn btn-danger">Eliminar</a>
+                                    </td>
                                 </tr>
                                 </c:forEach>
                                 
@@ -112,12 +116,17 @@
                         </table>
 
                     </div>
-                    <div class="card-footer">
-                        <div>
+                    <div class="card-footer d-flex">
+                        <div class="col-sm-6">
                             <input type="submit" name="accion" value="Generar Venta" class="btn btn-success">
                             <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
                         </div>
+                        
+                        <div class="col-sm-4 ml-auto">
+                            <input type="text" name="txtTotal" value="${totalPagar}" class="form-control">
+                        </div>
                     </div>
+                    
                 </div>
 
             </div>

@@ -41,6 +41,7 @@ public class Controlador extends HttpServlet {
     double precio;
     int cant;
     double subtotal;
+    double totalPagar;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -135,6 +136,7 @@ public class Controlador extends HttpServlet {
                     request.setAttribute("producto", p);
                     break;
                 case "Agregar":
+                    totalPagar = 0.0;
                     //item = item + 1;
                     cod = p.getId();
                     descripcion = request.getParameter("nomproducto");
@@ -170,6 +172,12 @@ public class Controlador extends HttpServlet {
                         v.setCantidad(cant);
                         v.setSubtotal(subtotal);
                         lista.add(v);
+                        
+                        for(int i =0; i < lista.size(); i++){
+                            totalPagar = totalPagar + lista.get(i).getSubtotal();
+                        }
+                            
+                        request.setAttribute("totalpagar", totalPagar);
                         request.setAttribute("lista", lista);
                         //break;
                     }
