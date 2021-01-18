@@ -81,7 +81,7 @@
                     <div class="card-body">
                         <div class="d-flex col-sm-3">
                             <label>NumeroSerie: </label>
-                            <input type="text" name="NroSerie" class="form-control">
+                            <input type="text" name="NroSerie" value="${nserie}" class="form-control">
                         </div>
                         <br>
                         <table class="table table-hover">

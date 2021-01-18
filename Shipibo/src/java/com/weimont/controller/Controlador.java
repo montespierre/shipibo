@@ -1,5 +1,6 @@
 package com.weimont.controller;
 
+import com.weimont.config.GenerarSerie;
 import com.weimont.model.Cliente;
 import com.weimont.model.ClienteDao;
 import com.weimont.model.Empleado;
@@ -7,6 +8,7 @@ import com.weimont.model.EmpleadoDao;
 import com.weimont.model.Producto;
 import com.weimont.model.ProductoDao;
 import com.weimont.model.Venta;
+import com.weimont.model.VentaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -42,6 +44,9 @@ public class Controlador extends HttpServlet {
     int cant;
     double subtotal;
     double totalPagar;
+    
+    String numeroserie;
+    VentaDao vdao = new VentaDao();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -195,6 +200,16 @@ public class Controlador extends HttpServlet {
                     request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response); 
                     break;
                 default:
+                    numeroserie = vdao.GenerarSerie();
+                    if(numeroserie==null){
+                        numeroserie = "00000001";
+                        request.setAttribute("nserie", numeroserie);
+                    }else{
+                        int incrementar = Integer.parseInt(numeroserie);
+                        GenerarSerie gs = new GenerarSerie();
+                        numeroserie = gs.NumeroSerie(incrementar);
+                        request.setAttribute("nserie", numeroserie);
+                    }
                     request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
             }
             request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
