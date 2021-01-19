@@ -21,6 +21,40 @@ public class ProductoDao {
     ResultSet rs;
     int r;
     
+    public Producto buscar(int id){
+        Producto p = new Producto();
+        String sql = "select * from producto where IdProducto="+id;
+        
+        try {
+            con = cn.conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+               p.setId(rs.getInt(1));
+               p.setNom(rs.getString(2));
+               p.setPre(rs.getDouble(3));
+               p.setStock(rs.getInt(4));
+               p.setEstado(rs.getString(5));
+            }
+        } catch (Exception e) {
+        }
+        return p;
+    }
+    
+    public void actualizarstock(int id, int stock){
+        String sql = "update producto set Stock=? where IdProducto=?";
+        
+        try {
+            con = cn.conexion();
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, stock);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+        
+    }
+    
     public Producto listarId(int id){
         Producto pr = new Producto();
         String sql = "select* from producto where IdProducto="+id;
