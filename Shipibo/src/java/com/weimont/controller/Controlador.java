@@ -171,9 +171,9 @@ public class Controlador extends HttpServlet {
                           
                             
                             request.setAttribute("lista", lista);
-                            request.setAttribute("totalpagar", totalPagar);
-                            //request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
-                            break;
+                            //request.setAttribute("totalpagar", totalPagar);
+                            request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
+                            //break;
                         }
                     }
                     
