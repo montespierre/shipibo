@@ -163,7 +163,9 @@ public class Controlador extends HttpServlet {
                             actual.setSubtotal(otroSubtotal);
                             encontrado = 1;
                             
-                            v = new Venta();
+                            //v = new Venta();
+                            
+                            //System.out.println(actual.getId());
                             
                             for(int i =0; i < lista.size(); i++){
                             totalPagar = totalPagar + lista.get(i).getSubtotal();
@@ -171,9 +173,9 @@ public class Controlador extends HttpServlet {
                           
                             
                             request.setAttribute("lista", lista);
-                            //request.setAttribute("totalpagar", totalPagar);
+                            request.setAttribute("totalpagar", totalPagar);
                             request.getRequestDispatcher("/ventas/registrarVenta.jsp").forward(request, response);
-                            //break;
+                            break;
                         }
                     }
                     
@@ -181,7 +183,7 @@ public class Controlador extends HttpServlet {
                         item = item + 1;
                         v = new Venta();
                         v.setItem(item);
-                        v.setIdproducto(cod);
+                        v.setId(cod);
                         v.setDescripcionP(descripcion);
                         v.setPrecio(precio);
                         v.setCantidad(cant);

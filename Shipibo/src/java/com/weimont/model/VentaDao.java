@@ -20,7 +20,7 @@ public class VentaDao {
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    int r;
+    
     
     public String GenerarSerie(){
         String numeroserie = "";
@@ -55,7 +55,7 @@ public class VentaDao {
         return idventas;
     }
     
-    public int guardarVenta(Venta ve){
+    public void guardarVenta(Venta ve){
         String sql = "insert into ventas(IdCliente, IdEmpleado, NumeroSerie, FechaVentas, Monto, Estado) values(?,?,?,?,?,?)";
         
         try {
@@ -71,10 +71,10 @@ public class VentaDao {
             ps.executeUpdate();
         } catch (Exception e) {
         }
-        return r;
+        
     }
     
-    public int guardarDetalleventas(Venta venta){
+    public void guardarDetalleventas(Venta venta){
         String sql = "insert into detalle_ventas(IdVentas, IdProducto, Cantidad, PrecioVenta) values(?,?,?,?)";
         
         try {
@@ -88,6 +88,6 @@ public class VentaDao {
             ps.executeUpdate();
         } catch (Exception e) {
         }
-        return r;
+      
     }
 }
