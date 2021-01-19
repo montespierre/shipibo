@@ -65,7 +65,7 @@ public class VentaDao {
             ps.setInt(2, ve.getIdempleado());
             ps.setString(3, ve.getNumserie());
             ps.setString(4, ve.getFecha());
-            ps.setDouble(5, ve.getPrecio());
+            ps.setDouble(5, ve.getMonto());
             ps.setString(6, ve.getEstado());
             
             ps.executeUpdate();
